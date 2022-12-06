@@ -1,0 +1,24 @@
+name: Linux (x64)
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      run: sh ./linux.sh
+    - name: Archive v8_monolith
+      uses: actions/upload-artifact@v3
+      with:
+        name: v8_monolith
+        path: v8/v8/out/linux/obj/libv8_monolith.a
