@@ -16,6 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build
+      shell: cmd
       run: call ./windows_debug.bat
     - name: Archive v8_monolith
       uses: actions/upload-artifact@v3
