@@ -1,0 +1,24 @@
+name: macOS (arm64-debug)
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      run: sh ./macos_debug.sh
+    - name: Archive v8_monolith
+      uses: actions/upload-artifact@v3
+      with:
+        name: v8_monolith
+        path: v8/v8/out/macos/obj/libv8_monolith.a
