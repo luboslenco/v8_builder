@@ -9,5 +9,5 @@ call fetch v8
 cd v8
 call git checkout 10.8.169
 call gclient sync
-call gn gen out\windows --args='is_component_build=false is_debug=true target_cpu="x64" v8_enable_i18n_support=false v8_monolithic=true v8_use_external_startup_data=false v8_enable_snapshot_compression=false symbol_level=1 v8_symbol_level=1 v8_static_library=true strip_debug_info=false v8_enable_pointer_compression=false v8_enable_31bit_smis_on_64bit_arch=false dcheck_always_on=false is_clang=false'
+call gn gen out\windows --args="is_component_build=false is_debug=true target_cpu=\"x64\" v8_enable_i18n_support=false v8_monolithic=true v8_use_external_startup_data=false v8_enable_snapshot_compression=false symbol_level=1 v8_symbol_level=1 v8_static_library=true strip_debug_info=false v8_enable_pointer_compression=false v8_enable_31bit_smis_on_64bit_arch=false dcheck_always_on=false is_clang=false"
 call ninja -C out\windows v8_monolith
